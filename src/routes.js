@@ -14,7 +14,17 @@ var routes = [
     rtlName: "لوحة القيادة",
     icon: "tim-icons icon-chart-pie-36",
     component: Dashboard,
-    layout: "/admin"
+    layout: "/admin",
+    innerroutes: [
+      {
+        path: "/test",
+        name: "Test",
+        rtlName: "لوحة القيادة",
+        icon: "tim-icons icon-atom",
+        component: Dashboard,
+        layout: "/admin",
+      }
+    ]
   },
   {
     path: "/icons",

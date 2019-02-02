@@ -8,18 +8,23 @@ import { PropTypes } from "prop-types";
 import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
-import { Nav } from "reactstrap";
+import { Nav, Collapse } from "reactstrap";
 
 var ps;
 
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { collapse: false };
     this.activeRoute.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
   // verifies if routeName is the one active (in browser input)
   activeRoute(routeName) {
     return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
+  }
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
   }
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
@@ -113,10 +118,37 @@ class Sidebar extends React.Component {
                     className="nav-link"
                     activeClassName="active"
                     onClick={this.props.toggleSidebar}
+                    onClick={this.toggle}
+                    aria-expanded={true}
                   >
                     <i className={prop.icon} />
-                    <p>{rtlActive ? prop.rtlName : prop.name}</p>
+                    <p>{rtlActive ? prop.rtlName : prop.name}<b className="caret"></b></p>
                   </NavLink>
+                    <Collapse isOpen={this.state.collapse}>
+                      <ul className="nav">
+                        {routes[0].innerroutes.map((prop, key) => {
+                          if (prop.redirect) return null;
+                          return (
+                            <li
+                            className={
+                              this.activeRoute(prop.path) +
+                              (prop.pro ? " active-pro" : "")
+                            }
+                            key={key}
+                          >
+                            <NavLink
+                              to={prop.layout + prop.path}
+                              className="nav-link"
+                              activeClassName="active"
+                              onClick={this.props.toggleSidebar}
+                            >
+                              <i className={prop.icon} />
+                              <p>{rtlActive ? prop.rtlName : prop.name}</p>
+                            </NavLink>
+                          </li>
+                      );})}
+                    </ul>
+                  </Collapse>
                 </li>
               );
             })}
