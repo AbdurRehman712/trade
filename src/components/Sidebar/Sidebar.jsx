@@ -140,15 +140,11 @@ class Sidebar extends React.Component {
             </div>
           ) : null}
           <Nav>
-            {/* {routes.map((prop, key) => {
-              if (prop.redirect) return null;
-              return ( */}
                 <li
                   className={
                     this.activeRoute(routes[0].path) +
                     (routes[0].pro ? " active-pro" : "")
                   }
-                  // key={key}
                 >
                   <NavLink
                     to={routes[0].layout + routes[0].path}
@@ -163,347 +159,231 @@ class Sidebar extends React.Component {
                   </NavLink>
                     <Collapse isOpen={this.state.collapse1}>
                       <ul className="nav">
-                        {routes[0].innerroutes.map((prop, key) => {
-                          if (prop.redirect) return null;
-                          return (
-                            <li
-                            className={
-                              this.activeRoute(prop.path) +
-                              (prop.pro ? " active-pro" : "")
-                            }
-                            key={key}
-                          >
-                            <NavLink
-                              to={prop.layout + prop.path}
-                              className="nav-link"
-                              activeClassName="active"
-                              onClick={this.props.toggleSidebar}
-                            >
-                              <i className={prop.icon} />
-                              <p>{rtlActive ? prop.rtlName : prop.name}</p>
-                            </NavLink>
-                          </li>
-                      );})}
-                    </ul>
-                  </Collapse>
-                </li>
-              
-                <li
-                  className={
-                    this.activeRoute(routes[1].path) +
-                    (routes[1].pro ? " active-pro" : "")
-                  }
-                  // key={key}
-                >
-                  <NavLink
-                    to={routes[1].layout + routes[1].path}
-                    className="nav-link"
-                    activeClassName="active"
-                    onClick={this.props.toggleSidebar}
-                    onClick={this.toggle2}
-                    aria-expanded={true}
-                  >
-                    <i className={routes[1].icon} />
-                    <p>{rtlActive ? routes[1].rtlName : routes[1].name}<b className="caret"></b></p>
-                  </NavLink>
-                    <Collapse isOpen={this.state.collapse2}>
-                      <ul className="nav">
-                        {routes[1].innerroutes.map((prop, key) => {
-                          if (prop.redirect) return null;
-                          return (
-                            <li
-                            className={
-                              this.activeRoute(prop.path) +
-                              (prop.pro ? " active-pro" : "")
-                            }
-                            key={key}
-                          >
-                            <NavLink
-                              to={prop.layout + prop.path}
-                              className="nav-link"
-                              activeClassName="active"
-                              onClick={this.props.toggleSidebar}
-                            >
-                              <i className={prop.icon} />
-                              <p>{rtlActive ? prop.rtlName : prop.name}</p>
-                            </NavLink>
-                          </li>
-                      );})}
-                    </ul>
-                  </Collapse>
-                </li>
+                        <li
+                        className={
+                          this.activeRoute(routes[1].path) +
+                          (routes[1].pro ? " active-pro" : "")
+                        }
+                      >
+                        <NavLink
+                          to={routes[1].layout + routes[1].path}
+                          className="nav-link"
+                          activeClassName="active"
+                          onClick={this.props.toggleSidebar}
+                        >
+                          <i className={routes[1].icon} />
+                          <p>{rtlActive ? routes[1].rtlName : routes[1].name}</p>
+                        </NavLink>
+                      </li>
+                      
+                      <li
+                        className={
+                          this.activeRoute(routes[2].path) +
+                          (routes[2].pro ? " active-pro" : "")
+                        }
+                      >
+                        <NavLink
+                          to={routes[2].layout + routes[2].path}
+                          className="nav-link"
+                          activeClassName="active"
+                          onClick={this.props.toggleSidebar}
+                        >
+                          <i className={routes[2].icon} />
+                          <p>{rtlActive ? routes[2].rtlName : routes[2].name}</p>
+                        </NavLink>
+                      </li>
 
-                <li
-                  className={
-                    this.activeRoute(routes[2].path) +
-                    (routes[2].pro ? " active-pro" : "")
-                  }
-                  // key={key}
-                >
-                  <NavLink
-                    to={routes[2].layout + routes[2].path}
-                    className="nav-link"
-                    activeClassName="active"
-                    onClick={this.props.toggleSidebar}
-                    onClick={this.toggle3}
-                    aria-expanded={true}
-                  >
-                    <i className={routes[2].icon} />
-                    <p>{rtlActive ? routes[2].rtlName : routes[2].name}<b className="caret"></b></p>
-                  </NavLink>
-                    <Collapse isOpen={this.state.collapse3}>
-                      <ul className="nav">
-                        {routes[2].innerroutes.map((prop, key) => {
-                          if (prop.redirect) return null;
-                          return (
-                            <li
-                            className={
-                              this.activeRoute(prop.path) +
-                              (prop.pro ? " active-pro" : "")
-                            }
-                            key={key}
-                          >
-                            <NavLink
-                              to={prop.layout + prop.path}
-                              className="nav-link"
-                              activeClassName="active"
-                              onClick={this.props.toggleSidebar}
-                            >
-                              <i className={prop.icon} />
-                              <p>{rtlActive ? prop.rtlName : prop.name}</p>
-                            </NavLink>
-                          </li>
-                      );})}
-                    </ul>
-                  </Collapse>
-                </li>
-
-                <li
-                  className={
-                    this.activeRoute(routes[3].path) +
-                    (routes[3].pro ? " active-pro" : "")
-                  }
-                  // key={key}
-                >
-                  <NavLink
-                    to={routes[3].layout + routes[3].path}
-                    className="nav-link"
-                    activeClassName="active"
-                    onClick={this.props.toggleSidebar}
-                    onClick={this.toggle4}
-                    aria-expanded={true}
-                  >
-                    <i className={routes[3].icon} />
-                    <p>{rtlActive ? routes[3].rtlName : routes[3].name}<b className="caret"></b></p>
-                  </NavLink>
-                    <Collapse isOpen={this.state.collapse4}>
-                      <ul className="nav">
-                        {routes[3].innerroutes.map((prop, key) => {
-                          if (prop.redirect) return null;
-                          return (
-                            <li
-                            className={
-                              this.activeRoute(prop.path) +
-                              (prop.pro ? " active-pro" : "")
-                            }
-                            key={key}
-                          >
-                            <NavLink
-                              to={prop.layout + prop.path}
-                              className="nav-link"
-                              activeClassName="active"
-                              onClick={this.props.toggleSidebar}
-                            >
-                              <i className={prop.icon} />
-                              <p>{rtlActive ? prop.rtlName : prop.name}</p>
-                            </NavLink>
-                          </li>
-                      );})}
-                    </ul>
-                  </Collapse>
-                </li>
-
-                 <li
-                  className={
-                    this.activeRoute(routes[4].path) +
-                    (routes[4].pro ? " active-pro" : "")
-                  }
-                  // key={key}
-                >
-                  <NavLink
-                    to={routes[4].layout + routes[4].path}
-                    className="nav-link"
-                    activeClassName="active"
-                    onClick={this.props.toggleSidebar}
-                    onClick={this.toggle5}
-                    aria-expanded={true}
-                  >
-                    <i className={routes[4].icon} />
-                    <p>{rtlActive ? routes[4].rtlName : routes[4].name}<b className="caret"></b></p>
-                  </NavLink>
-                    <Collapse isOpen={this.state.collapse5}>
-                      <ul className="nav">
-                        {routes[4].innerroutes.map((prop, key) => {
-                          if (prop.redirect) return null;
-                          return (
-                            <li
-                            className={
-                              this.activeRoute(prop.path) +
-                              (prop.pro ? " active-pro" : "")
-                            }
-                            key={key}
-                          >
-                            <NavLink
-                              to={prop.layout + prop.path}
-                              className="nav-link"
-                              activeClassName="active"
-                              onClick={this.props.toggleSidebar}
-                            >
-                              <i className={prop.icon} />
-                              <p>{rtlActive ? prop.rtlName : prop.name}</p>
-                            </NavLink>
-                          </li>
-                      );})}
-                    </ul>
-                  </Collapse>
-                </li>
-
-                <li
-                  className={
-                    this.activeRoute(routes[5].path) +
-                    (routes[5].pro ? " active-pro" : "")
-                  }
-                  // key={key}
-                >
-                  <NavLink
-                    to={routes[5].layout + routes[5].path}
-                    className="nav-link"
-                    activeClassName="active"
-                    onClick={this.props.toggleSidebar}
-                    onClick={this.toggle6}
-                    aria-expanded={true}
-                  >
-                    <i className={routes[5].icon} />
-                    <p>{rtlActive ? routes[5].rtlName : routes[5].name}<b className="caret"></b></p>
-                  </NavLink>
-                    <Collapse isOpen={this.state.collapse6}>
-                      <ul className="nav">
-                        {routes[5].innerroutes.map((prop, key) => {
-                          if (prop.redirect) return null;
-                          return (
-                            <li
-                            className={
-                              this.activeRoute(prop.path) +
-                              (prop.pro ? " active-pro" : "")
-                            }
-                            key={key}
-                          >
-                            <NavLink
-                              to={prop.layout + prop.path}
-                              className="nav-link"
-                              activeClassName="active"
-                              onClick={this.props.toggleSidebar}
-                            >
-                              <i className={prop.icon} />
-                              <p>{rtlActive ? prop.rtlName : prop.name}</p>
-                            </NavLink>
-                          </li>
-                      );})}
                     </ul>
                   </Collapse>
                 </li>
                 
                 <li
                   className={
-                    this.activeRoute(routes[6].path) +
-                    (routes[6].pro ? " active-pro" : "")
+                    this.activeRoute(routes[3].path) +
+                    (routes[3].pro ? " active-pro" : "")
                   }
-                  // key={key}
                 >
                   <NavLink
-                    to={routes[6].layout + routes[6].path}
+                    to={routes[3].layout + routes[3].path}
                     className="nav-link"
                     activeClassName="active"
                     onClick={this.props.toggleSidebar}
-                    onClick={this.toggle7}
+                    onClick={this.toggle2}
                     aria-expanded={true}
                   >
-                    <i className={routes[6].icon} />
-                    <p>{rtlActive ? routes[6].rtlName : routes[6].name}<b className="caret"></b></p>
+                    <i className={routes[3].icon} />
+                    <p>{rtlActive ? routes[3].rtlName : routes[3].name}<b className="caret"></b></p>
                   </NavLink>
-                    <Collapse isOpen={this.state.collapse7}>
+                    <Collapse isOpen={this.state.collapse2}>
                       <ul className="nav">
-                        {routes[6].innerroutes.map((prop, key) => {
-                          if (prop.redirect) return null;
-                          return (
-                            <li
-                            className={
-                              this.activeRoute(prop.path) +
-                              (prop.pro ? " active-pro" : "")
-                            }
-                            key={key}
-                          >
-                            <NavLink
-                              to={prop.layout + prop.path}
-                              className="nav-link"
-                              activeClassName="active"
-                              onClick={this.props.toggleSidebar}
-                            >
-                              <i className={prop.icon} />
-                              <p>{rtlActive ? prop.rtlName : prop.name}</p>
-                            </NavLink>
-                          </li>
-                      );})}
+                        <li
+                        className={
+                          this.activeRoute(routes[4].path) +
+                          (routes[4].pro ? " active-pro" : "")
+                        }
+                      >
+                        <NavLink
+                          to={routes[4].layout + routes[4].path}
+                          className="nav-link"
+                          activeClassName="active"
+                          onClick={this.props.toggleSidebar}
+                        >
+                          <i className={routes[4].icon} />
+                          <p>{rtlActive ? routes[4].rtlName : routes[4].name}</p>
+                        </NavLink>
+                      </li>
+                      
+                      <li
+                        className={
+                          this.activeRoute(routes[5].path) +
+                          (routes[5].pro ? " active-pro" : "")
+                        }
+                      >
+                        <NavLink
+                          to={routes[5].layout + routes[5].path}
+                          className="nav-link"
+                          activeClassName="active"
+                          onClick={this.props.toggleSidebar}
+                        >
+                          <i className={routes[5].icon} />
+                          <p>{rtlActive ? routes[5].rtlName : routes[5].name}</p>
+                        </NavLink>
+                      </li>
+
                     </ul>
                   </Collapse>
                 </li>
 
                 <li
                   className={
-                    this.activeRoute(routes[7].path) +
-                    (routes[7].pro ? " active-pro" : "")
+                    this.activeRoute(routes[6].path) +
+                    (routes[6].pro ? " active-pro" : "")
                   }
-                  // key={key}
                 >
                   <NavLink
-                    to={routes[7].layout + routes[7].path}
+                    to={routes[6].layout + routes[6].path}
                     className="nav-link"
                     activeClassName="active"
                     onClick={this.props.toggleSidebar}
-                    onClick={this.toggle8}
+                    onClick={this.toggle3}
                     aria-expanded={true}
                   >
-                    <i className={routes[7].icon} />
-                    <p>{rtlActive ? routes[7].rtlName : routes[7].name}<b className="caret"></b></p>
+                    <i className={routes[6].icon} />
+                    <p>{rtlActive ? routes[6].rtlName : routes[6].name}<b className="caret"></b></p>
                   </NavLink>
-                    <Collapse isOpen={this.state.collapse8}>
+                    <Collapse isOpen={this.state.collapse3}>
                       <ul className="nav">
-                        {routes[7].innerroutes.map((prop, key) => {
-                          if (prop.redirect) return null;
-                          return (
-                            <li
-                            className={
-                              this.activeRoute(prop.path) +
-                              (prop.pro ? " active-pro" : "")
-                            }
-                            key={key}
-                          >
-                            <NavLink
-                              to={prop.layout + prop.path}
-                              className="nav-link"
-                              activeClassName="active"
-                              onClick={this.props.toggleSidebar}
-                            >
-                              <i className={prop.icon} />
-                              <p>{rtlActive ? prop.rtlName : prop.name}</p>
-                            </NavLink>
-                          </li>
-                      );})}
+                        <li
+                        className={
+                          this.activeRoute(routes[7].path) +
+                          (routes[7].pro ? " active-pro" : "")
+                        }
+                      >
+                        <NavLink
+                          to={routes[7].layout + routes[7].path}
+                          className="nav-link"
+                          activeClassName="active"
+                          onClick={this.props.toggleSidebar}
+                        >
+                          <i className={routes[7].icon} />
+                          <p>{rtlActive ? routes[7].rtlName : routes[7].name}</p>
+                        </NavLink>
+                      </li>
+                      
+                      <li
+                        className={
+                          this.activeRoute(routes[8].path) +
+                          (routes[8].pro ? " active-pro" : "")
+                        }
+                      >
+                        <NavLink
+                          to={routes[8].layout + routes[8].path}
+                          className="nav-link"
+                          activeClassName="active"
+                          onClick={this.props.toggleSidebar}
+                        >
+                          <i className={routes[8].icon} />
+                          <p>{rtlActive ? routes[8].rtlName : routes[8].name}</p>
+                        </NavLink>
+                      </li>
+
                     </ul>
                   </Collapse>
                 </li>
-              {/* );
-            })} */}
+
+                <li
+                  className={
+                    this.activeRoute(routes[9].path) +
+                    (routes[9].pro ? " active-pro" : "")
+                  }
+                >
+                  <NavLink
+                    to={routes[9].layout + routes[9].path}
+                    className="nav-link"
+                    activeClassName="active"
+                    onClick={this.props.toggleSidebar}
+                    onClick={this.toggle4}
+                    aria-expanded={true}
+                  >
+                    <i className={routes[9].icon} />
+                    <p>{rtlActive ? routes[9].rtlName : routes[9].name}<b className="caret"></b></p>
+                  </NavLink>
+                    <Collapse isOpen={this.state.collapse4}>
+                      <ul className="nav">
+                        <li
+                        className={
+                          this.activeRoute(routes[10].path) +
+                          (routes[10].pro ? " active-pro" : "")
+                        }
+                      >
+                        <NavLink
+                          to={routes[10].layout + routes[10].path}
+                          className="nav-link"
+                          activeClassName="active"
+                          onClick={this.props.toggleSidebar}
+                        >
+                          <i className={routes[10].icon} />
+                          <p>{rtlActive ? routes[10].rtlName : routes[10].name}</p>
+                        </NavLink>
+                      </li>
+                      
+                      <li
+                        className={
+                          this.activeRoute(routes[11].path) +
+                          (routes[11].pro ? " active-pro" : "")
+                        }
+                      >
+                        <NavLink
+                          to={routes[11].layout + routes[11].path}
+                          className="nav-link"
+                          activeClassName="active"
+                          onClick={this.props.toggleSidebar}
+                        >
+                          <i className={routes[11].icon} />
+                          <p>{rtlActive ? routes[11].rtlName : routes[11].name}</p>
+                        </NavLink>
+                      </li>
+
+                      <li
+                        className={
+                          this.activeRoute(routes[12].path) +
+                          (routes[12].pro ? " active-pro" : "")
+                        }
+                      >
+                        <NavLink
+                          to={routes[12].layout + routes[12].path}
+                          className="nav-link"
+                          activeClassName="active"
+                          onClick={this.props.toggleSidebar}
+                        >
+                          <i className={routes[12].icon} />
+                          <p>{rtlActive ? routes[12].rtlName : routes[12].name}</p>
+                        </NavLink>
+                      </li>
+
+                    </ul>
+                  </Collapse>
+                </li>
           </Nav>
         </div>
       </div>

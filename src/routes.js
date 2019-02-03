@@ -1,11 +1,17 @@
-import Dashboard from "views/Dashboard.jsx";
-import Icons from "views/Icons.jsx";
-import Map from "views/Map.jsx";
-import Notifications from "views/Notifications.jsx";
+import Dashboard from "views/Dashboard.jsx";  
 import Rtl from "views/Rtl.jsx";
 import TableList from "views/TableList.jsx";
 import Typography from "views/Typography.jsx";
 import UserProfile from "views/UserProfile.jsx";
+import AddStaff from "views/AddStaff.jsx";
+import ManageStaff from "views/ManageStaff.jsx";
+import AddCurrency from "views/AddCurrency.jsx";
+import ManageCurrencies from "views/ManageCurrencies.jsx";
+import AddAccount from "views/AddAccount.jsx";
+import ManageAccounts from "views/ManageAccounts.jsx";
+import AddCustomer from "views/AddCustomer.jsx";
+import ManageCustomers from "views/ManageCustomers.jsx";
+import ReceiveInstallments from "views/ReceiveInstallments.jsx";
 
 var routes = [
   {
@@ -15,126 +21,102 @@ var routes = [
     icon: "tim-icons icon-chart-pie-36",
     component: Dashboard,
     layout: "/admin",
-    innerroutes: [
-      {
-        path: "/test",
-        name: "Add Staff",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      },
-      {
-        path: "/test1",
-        name: "Manage Staff",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      }
-    ]
   },
   {
-    path: "/icons",
+    path: "/addstaff",
+    name: "Add Staff",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-atom",
+    component: AddStaff,
+    layout: "/admin",
+  },
+  {
+    path: "/managestaff",
+    name: "Manage Staff",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-atom",
+    component: ManageStaff,
+    layout: "/admin",
+  },
+  {
+    path: "/managecurrencies",
     name: "Currency Management",
     rtlName: "الرموز",
     icon: "tim-icons icon-atom",
-    component: Icons,
+    component: ManageCurrencies,
     layout: "/admin",
-    innerroutes: [
-      {
-        path: "/test",
-        name: "Add Currencies",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      },
-      {
-        path: "/test1",
-        name: "Manage Currencies",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      },
-    ]
   },
   {
-    path: "/map",
+    path: "/addcurrency",
+    name: "Add Currencies",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-atom",
+    component: AddCurrency,
+    layout: "/admin",
+  },
+  {
+    path: "/managecurrencies",
+    name: "Manage Currencies",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-atom",
+    component: ManageCurrencies,
+    layout: "/admin",
+  },
+  {
+    path: "/manageaccounts",
     name: "Company Account",
     rtlName: "خرائط",
     icon: "tim-icons icon-pin",
-    component: Map,
+    component: ManageAccounts,
     layout: "/admin",
-    innerroutes: [
-      {
-        path: "/test",
-        name: "Add Account",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      },
-      {
-        path: "/test1",
-        name: "Set Starting Balance",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      },
-      {
-        path: "/test1",
-        name: "Manage Account",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      }
-    ]
   },
   {
-    path: "/notifications",
+    path: "/addaccount",
+    name: "Add Account",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-atom",
+    component: AddAccount,
+    layout: "/admin",
+  },
+  {
+    path: "/manageaccounts",
+    name: "Manage Account",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-atom",
+    component: ManageAccounts,
+    layout: "/admin",
+  },
+  {
+    path: "/managecustomer",
     name: "Customer Management",
     rtlName: "إخطارات",
     icon: "tim-icons icon-bell-55",
-    component: Notifications,
+    component: ManageCustomers,
     layout: "/admin",
-    innerroutes: [
-      {
-        path: "/test",
-        name: "Add Customer",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      },
-      {
-        path: "/test1",
-        name: "Manage Customers",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      },
-      {
-        path: "/test1",
-        name: "Handle Installments",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      },
-      {
-        path: "/test1",
-        name: "Staff Role",
-        rtlName: "لوحة القيادة",
-        icon: "tim-icons icon-atom",
-        component: Dashboard,
-        layout: "/admin",
-      }
-    ]
+  },
+  {
+    path: "/addcustomer",
+    name: "Add Customer",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-atom",
+    component: AddCustomer,
+    layout: "/admin",
+  },
+  {
+    path: "/managecustomer",
+    name: "Manage Customers",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-atom",
+    component: ManageCustomers,
+    layout: "/admin",
+  },
+  {
+    path: "/receiveinstallments",
+    name: "Receive Installments",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-atom",
+    component: ReceiveInstallments,
+    layout: "/admin",
   },
   {
     path: "/user-profile",
