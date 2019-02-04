@@ -135,3 +135,11 @@
 #inputState {
   background: #2e64f5;
 }
+
+.eachRow input{
+  width: 100%;
+  color: rgba(255, 255, 255, 0.7) !important;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
