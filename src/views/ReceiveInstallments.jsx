@@ -8,12 +8,12 @@ import {
   CardTitle,
   Table,
   Button,
-  // Row,
-  // Col,
-  // FormGroup,
-  // Form,
-  // Input,
-  // Collapse
+  Row,
+  Col,
+  FormGroup,
+  Form,
+  Input,
+  Collapse
 } from "reactstrap";
 
 class Tables extends React.Component {
@@ -37,7 +37,6 @@ class Tables extends React.Component {
         installment_date: '02/04/2019'
       },
     ];
-    this.toggle = this.toggle.bind(this);
     // this.handleUserInput = this.handleUserInput.bind(this);
     // this.handleRowDel = this.handleRowDel.bind(this);
     // this.handleAddEvent = this.handleAddEvent.bind(this);
@@ -84,9 +83,6 @@ class Tables extends React.Component {
         return product;
       });
         this.setState({products:newProducts});
-  }
-  toggle() {
-    this.setState({ collapse: !this.state.collapse });
   }
   render() {
     return (
@@ -229,6 +225,18 @@ class SearchBar extends React.Component {
 }
 
 class ProductTable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      collapse: false,
+    };
+    this.toggle = this.toggle.bind(this);
+
+  }
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
+  }
+
 
   render() {
     var onProductTableUpdate = this.props.onProductTableUpdate;
@@ -245,7 +253,73 @@ class ProductTable extends React.Component {
         <Card>
           <CardHeader>
             <CardTitle className="d-inline" tag="h4">Receive Installment</CardTitle>
-            <Button type="button" size="sm" onClick={this.props.onRowAdd} className="btn btn-success pull-right">Add</Button>
+            <Row>
+                    <Col className="pr-md-1" md="6">
+                      <Form>
+                        <FormGroup>
+                          <Input type="select" name="select" id="inputState" >
+                            <option>Select Customer...</option>
+                            <option>Ali</option>
+                            <option>Bilal</option>
+                          </Input>
+                        </FormGroup>
+                      </Form>
+                    </Col>
+                    <Col className="pl-md-1" md="6">
+                      <FormGroup>
+                        <Button color="info" size="sm"
+                          onClick={this.toggle}                        
+                        >
+                          Add New Installment
+                        </Button>
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                  
+                  <Collapse isOpen={this.state.collapse}>
+                    <Form>
+                      <Row>
+                        <Col className="pr-md-1" md="6">
+                          <FormGroup>
+                            <label>Currency</label>
+                            <Input
+                              placeholder="Currency"
+                              type="text"
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col className="pl-md-1" md="6">
+                          <FormGroup>
+                            <label>Amount</label>
+                            <Input
+                              placeholder="Amount"
+                              type="text"
+                            />
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                      <Row>
+                      <Col className="pr-md-1" md="6">
+                          <FormGroup>
+                            <label>Installment Date</label>
+                            <Input
+                              placeholder="Installment Date"
+                              type="date"
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col className="pl-md-1" md="6">
+                          <FormGroup>
+                            <label>Submit</label>
+                            <Input
+                              type="submit"
+                            />
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                    </Form>
+                  </Collapse>
+            {/* <Button type="button" size="sm" onClick={this.props.onRowAdd} className="btn btn-success pull-right">Add</Button> */}
           </CardHeader>
           <CardBody>
             <Table className="tablesorter" responsive>

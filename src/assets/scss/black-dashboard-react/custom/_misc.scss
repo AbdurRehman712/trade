@@ -20,6 +20,10 @@
     @include transitions($fast-transition-time, $transition-ease);
 }
 
+.sidebar .nav p{
+  font-weight: 600;
+}
+
 .dropdown-toggle[aria-expanded="true"]:after,
 a[data-toggle="collapse"][aria-expanded="true"] .caret,
 .card-collapse .card a[data-toggle="collapse"][aria-expanded="true"] i,

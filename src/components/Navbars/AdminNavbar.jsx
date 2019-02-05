@@ -1,6 +1,7 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+import notification from "notification.js";
 
 // reactstrap components
 import {
@@ -136,12 +137,19 @@ class AdminNavbar extends React.Component {
                     <p className="d-lg-none">Notifications</p>
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
-                    <NavLink tag="li">
+                  {notification.map((prop, key) => {
+                    if (prop.redirect) return null;
+                    return (  
+                    <NavLink tag="li"
+                      key={key}
+                    >
                       <DropdownItem className="nav-item">
-                        Mike John responded to your email
+                        {prop.name}
                       </DropdownItem>
                     </NavLink>
-                    <NavLink tag="li">
+                    );
+                  })}
+                    {/* <NavLink tag="li">
                       <DropdownItem className="nav-item">
                         You have 5 more tasks
                       </DropdownItem>
@@ -160,7 +168,7 @@ class AdminNavbar extends React.Component {
                       <DropdownItem className="nav-item">
                         Another one
                       </DropdownItem>
-                    </NavLink>
+                    </NavLink> */}
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <UncontrolledDropdown nav>
